@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { BrowserRouter ,Navigate,Route, Routes} from "react-router-dom";
+import Home from './components/pages/Home';
+import Contact from './components/pages/Contact';
+import About from './components/pages/About';
+import Post from './components/pages/Post';
+import Navbar  from './components/Navbar';
+import Dashbord from './components/pages/Dashbord';
+import Login from './components/pages/Login';
+
 
 function App() {
+
+  let isLogged = false;
+  let data ={
+    'st':'User not logged in'
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <BrowserRouter >
+    <Navbar/>
+    <Routes>
+    {/* <Route path="/" element={<h1>Boss</h1>}/> */}
+    <Route path ="/" element={<Home/>}/>
+    <Route path ="contact/" element={<Contact/>}/>
+    <Route path ="about/" element={<About/>}/>
+    <Route path ="dashbord/" element={isLogged ? <Dashbord/> :<Navigate to="/login"state={data} replace />}/>
+    <Route path ="login/" element={<Login/>}/>
+    <Route path ="post/:category" element={<Post/>}/>
+    <Route path ="*" element={<h1>Error 404 Page not found !!</h1>}/>
+
+    </Routes>
+
+    </BrowserRouter>
+  
+    </>
   );
 }
 
