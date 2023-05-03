@@ -4,7 +4,7 @@ const PostDetail = () => {
     let {category}=useParams();
   return (
     <>
-        <h1> {category} -- post detail</h1>
+        <h1> {category} -- post detail of this </h1>
     </>
   )
 }

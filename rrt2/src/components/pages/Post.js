@@ -2,7 +2,7 @@ import React from 'react'
 const Post = () => {
   return (
     <>
-      <h1>Post Page</h1>
+      <h1>Post Page done</h1>
     </>
   )
 
